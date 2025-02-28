@@ -52,6 +52,10 @@
         margin: 1.2rem 0;
       }
 
+      .hidden {
+        display: none;
+      }
+
       a {
         color: var(--link-color);
         text-decoration: none;
@@ -74,6 +78,17 @@
         }
       }
     </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let language = navigator.language || navigator.userLanguage;
+        language = language.split('-')[0];
+        if (language != "de") {
+          document.getElementById("en").classList.remove("hidden");
+          document.getElementById("de").classList.add("hidden");
+        }
+      });
+    </script>
   </head>
   <body>
     <div>
@@ -101,12 +116,18 @@
           </g>
         </svg>
       </a>
-      <p>
+      <p id="de">
         Die Familienholding B&H AG gehört den Nachkommen der beiden Firmenväter Konrad Basler und Ernst Hofmann.
         Die <a href="https://www.baslerhofmann.ch/">Basler & Hofmann AG</a>,
         die <a href="https://www.bss-basel.ch/">BSS Volkswirtschaftliche Beratung AG</a>
         und die <a href="https://rehalp-verwaltung.ch/">Rehalp-Verwaltungs AG</a>
         sind Tochtergesellschaften dieser Firma.
+      </p>
+      <p id="en" class="hidden">
+        Familienholding B&H Ltd is owned by the descendants of the two founding fathers, Konrad Basler and Ernst Hofmann.
+        Its subsidiaries include <a href="https://www.baslerhofmann.ch/en">Basler & Hofmann Ltd</a>,
+        <a href="https://bss-basel.ch/en/">BSS Economic Consultants Ltd</a>
+        and <a href="https://rehalp-verwaltung.ch/">Rehalp-Verwaltungs AG</a>.
       </p>
       <hr>
       <p>Familienholding B&H AG, Bachweg 3, 8133 Esslingen, <a href="mailto:info@fhbh.ch">info@fhbh.ch</a></p>
